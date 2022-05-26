@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<gdml xmlns:gdml="http://cern.ch/2001/Schemas/GDML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd" >
+    
+    <define>
+        <matrix coldim="2" name="AIRRINDEX" values="2.034*eV 1 2.068*eV 1 2.103*eV 1 2.139*eV 1 2.177*eV 1 2.216*eV 1 2.256*eV 1 2.298*eV 1 2.341*eV 1 2.386*eV 1 2.433*eV 1 2.481*eV 1 2.532*eV 1 2.585*eV 1 2.64*eV 1 2.697*eV 1 2.757*eV 1 2.82*eV 1 2.885*eV 1 2.954*eV 1 3.026*eV 1 3.102*eV 1 3.181*eV 1 3.265*eV 1 3.353*eV 1 3.446*eV 1 3.545*eV 1 3.649*eV 1 3.76*eV 1 3.877*eV 1 4.002*eV 1 4.136*eV 1"/>
+        <matrix coldim="2" name="WATERRINDEX" values="2.034*eV 1.3435 2.068*eV 1.344 2.103*eV 1.3445 2.139*eV 1.345 2.177*eV 1.3455 2.216*eV 1.346 2.256*eV 1.3465 2.298*eV 1.347 2.341*eV 1.3475 2.386*eV 1.348 2.433*eV 1.3485 2.481*eV 1.3492 2.532*eV 1.35 2.585*eV 1.3505 2.64*eV 1.351 2.697*eV 1.3518 2.757*eV 1.3522 2.82*eV 1.353 2.885*eV 1.3535 2.954*eV 1.354 3.026*eV 1.3545 3.102*eV 1.355 3.181*eV 1.3555 3.265*eV 1.356 3.353*eV 1.3568 3.446*eV 1.3572 3.545*eV 1.358 3.649*eV 1.3585 3.76*eV 1.359 3.877*eV 1.3595 4.002*eV 1.36 4.136*eV 1.3608"/>
+        <matrix coldim="2" name="QUARTZRINDEX" values="6.888010*eV 1.688442 5.955052*eV 1.637966 5.244678*eV 1.609926 4.685721*eV 1.592346 4.234433*eV 1.580452 3.862436*eV 1.571964 3.550521*eV 1.565660 3.285220*eV 1.560829 3.056809*eV 1.557029 2.858096*eV 1.553976 2.683640*eV 1.551477 2.529257*eV 1.549397 2.391670*eV 1.547642 2.268280*eV 1.546141 2.156997*eV 1.544841 2.056123*eV 1.543704 1.964262*eV 1.542698 1.880258*eV 1.541800 1.803144*eV 1.540991 1.732107*eV 1.540255 1.666454*eV 1.539581 1.605597*eV 1.538958 1.549028*eV 1.538379 1.496309*eV 1.537836 1.447061*eV 1.537324 1.400951*eV 1.536838 1.357689*eV 1.536375 1.317019*eV 1.535930 1.278715*eV 1.535501 1.242576*eV 1.535086 1.208423*eV 1.534681 1.176321*eV 1.534289 1.145880*eV 1.533905 1.115969*eV 1.533513 1.088535*eV 1.533139 1.062418*eV 1.532770 1.037525*eV 1.532403 1.013771*eV 1.532038 0.990289*eV 1.531662 0.968626*eV 1.531299 0.947891*eV 1.530936 0.928025*eV 1.530573 0.908975*eV 1.530208 0.890052*eV 1.529829 0.872514*eV 1.529461 0.855653*eV 1.529090 0.839433*eV 1.528717 0.823815*eV 1.528340 0.808241*eV 1.527947 0.793753*eV 1.527564 0.779775*eV 1.527177 0.766281*eV 1.526786 0.753245*eV 1.526390 0.740204*eV 1.525976 0.728034*eV 1.525571 0.716258*eV 1.525162 0.704856*eV 1.524747 0.693812*eV 1.524328 0.682732*eV 1.523887 0.672365*eV 1.523457 0.662309*eV 1.523021 0.652548*eV 1.522579 0.643072*eV 1.522131 0.633542*eV 1.521661 0.624605*eV 1.521201 0.615917*eV 1.520735 0.607468*eV 1.520262 0.599247*eV 1.519783 0.590964*eV 1.519280 0.583181*eV 1.518788 0.575600*eV 1.518289 0.568214*eV 1.517783 0.561014*eV 1.517271 0.553748*eV 1.516732 0.546909*eV 1.516205 0.540236*eV 1.515671 0.533724*eV 1.515129 0.527368*eV 1.514580 0.520942*eV 1.514004 0.514884*eV 1.513439 0.508966*eV 1.512867 0.503183*eV 1.512288 0.497529*eV 1.511700 0.491806*eV 1.511083 0.486403*eV 1.510479 0.481118*eV 1.509867 0.475947*eV 1.509247 0.470886*eV 1.508618 0.465756*eV 1.507958 0.460908*eV 1.507313 0.456160*eV 1.506658 0.451508*eV 1.505995 0.446951*eV 1.505323 0.442327*eV 1.504618 0.437952*eV 1.503927 0.433663*eV 1.503228 0.429457*eV 1.502519 0.425332*eV 1.501801 0.421142*eV 1.501047 0.417174*eV 1.500310 0.413281*eV 1.499563"/>
+        <?SiO2 data from https://refractiveindex.info/?shelf=main&book=SiO2&page=Radhakrishnan-o ?>
+        <matrix coldim="2" name="EFFICIENCY" values="2.034*eV 1 4.136*eV 1"/>
+        <matrix coldim="2" name="ABSLENGTH" values="2.034*eV 0 4.136*eV 0"/>
+        <matrix coldim="2" name="WATERABSLENGTH" values="2.034*eV 348 2.068*eV 482"/>
+        <?WATERABS is set artificial?>
+        <variable name="vial_a" value="12.5"/>
+        <variable name="vial_b" value="40.0"/>
+        <variable name="vial_c" value="34.5"/>
+        <variable name="vial_thick" value="1.25"/>
+        <variable name="cathod_diameter" value="51"/>
+        <rotation name="RotateY90" y="90" unit="deg" />
+    </define>
+
+    <materials>
+        <isotope N="14" Z="7" name="N14">
+            <atom unit="g/mole" value="14.0031"/>
+        </isotope>
+        <isotope N="15" Z="7" name="N15">
+            <atom unit="g/mole" value="15.0001"/>
+        </isotope>
+        <element name="Nitrogen">
+            <fraction n="0.99632" ref="N14"/>
+            <fraction n="0.00368" ref="N15"/>
+        </element>
+        <isotope N="16" Z="8" name="O16">
+            <atom unit="g/mole" value="15.9949"/>
+        </isotope>
+        <isotope N="17" Z="8" name="O17">
+            <atom unit="g/mole" value="16.9991"/>
+        </isotope>
+        <isotope N="18" Z="8" name="O18">
+            <atom unit="g/mole" value="17.9992"/>
+        </isotope>
+        <element name="Oxygen">
+            <fraction n="0.99757" ref="O16"/>
+            <fraction n="0.00038" ref="O17"/>
+            <fraction n="0.00205" ref="O18"/>
+        </element>
+        <material name="Air" state="gas">
+            <property name="RINDEX" ref="AIRRINDEX"/>
+            <T unit="K" value="293.15"/>
+            <D unit="g/cm3" value="0.00129"/>
+            <fraction n="0.7" ref="Nitrogen"/>
+            <fraction n="0.3" ref="Oxygen"/>
+        </material>
+        <isotope N="1" Z="1" name="H1">
+            <atom unit="g/mole" value="1.00782503081372"/>
+        </isotope>
+        <isotope N="2" Z="1" name="H2">
+            <atom unit="g/mole" value="2.01410199966617"/>
+        </isotope>
+        <element name="Hydrogen">
+            <fraction n="0.999885" ref="H1"/>
+            <fraction n="0.000115" ref="H2"/>
+        </element>
+        <material name="Water" state="solid">
+            <property name="RINDEX" ref="WATERRINDEX"/>
+            <property name="ABSLENGTH" ref="WATERABSLENGTH"/>
+            <T unit="K" value="293.15"/>
+            <D unit="g/cm3" value="1"/>
+            <fraction n="0.112097669256382" ref="Hydrogen"/>
+            <fraction n="0.887902330743618" ref="Oxygen"/>
+        </material>
+        <isotope N="28" Z="14" name="Si28">
+          <atom unit="g/mole" value="27.9769265350"/>
+        </isotope>
+        <isotope N="29" Z="14" name="Si29">
+          <atom unit="g/mole" value="28.9764946653"/>
+        </isotope>
+        <isotope N="30" Z="14" name="Si30">
+          <atom unit="g/mole" value="29.973770137"/>
+        </isotope>
+        <element name="Silicon">
+            <fraction n="0.92223" ref="Si28"/>
+            <fraction n="0.04685" ref="Si29"/>
+            <fraction n="0.03092" ref="Si30"/>
+        </element>
+        <material name="Quartz" state="solid">
+            <property name="RINDEX" ref="QUARTZRINDEX"/>
+            <T unit="K" value="293.15"/>
+            <D unit="g/cm3" value="2.65"/>
+            <fraction n="0.4674294749105434" ref="Silicon"/>
+            <fraction n="0.5325705250894566" ref="Oxygen"/>
+        </material>
+        <material name="PhotoCathod" state="solid">
+            <property name="RINDEX" ref="QUARTZRINDEX"/>
+            <property name="ABSLENGTH" ref="ABSLENGTH"/>
+            <T unit="K" value="293.15"/>
+            <D unit="g/cm3" value="2.65"/>
+            <fraction n="0.4674294749105434" ref="Silicon"/>
+            <fraction n="0.5325705250894566" ref="Oxygen"/>
+        </material>
+
+    </materials>
+
+    <solids>
+        <box name="World" x="100" y="100" z="100" lunit="mm"/>
+        <box name="Vial" x="vial_a" y="vial_b" z="vial_c" lunit="mm"/>
+        <box name="Scint" x="vial_a-2*vial_thick" y="vial_b-2*vial_thick" z="vial_c-2*vial_thick" lunit="mm"/>
+        <cone name="Cathod" rmin1="0" rmax1="cathod_diameter/2" rmin2="0" rmax2="cathod_diameter/2" z="5" startphi="0" deltaphi="360" lunit="mm" aunit="deg" />
+        <opticalsurface name="SurfCathod" model="glisur" finish="polished" type="dielectric_dielectric" value="1.0">
+           <property name="EFFICIENCY" ref="EFFICIENCY" />
+        </opticalsurface>
+    </solids>
+
+    <structure>
+        <volume name="Scint">
+            <materialref ref="Water"/>
+            <solidref ref="Scint"/>
+         </volume>
+        <volume name="Vial">
+            <materialref ref="Quartz"/>
+            <solidref ref="Vial"/>
+            <physvol name="Vials_phys">
+                <volumeref ref="Scint"/>
+                <position name="Scint_pos" unit="m" x="0" y="0" z="0"/>
+            </physvol>
+        </volume>
+        <volume name="Cathod">
+            <materialref ref="PhotoCathod"/>
+            <solidref ref="Cathod"/>
+            <auxiliary auxtype="SensDet" auxvalue="CathodSD"/>
+        </volume>
+        <skinsurface name="CathodSurface" surfaceproperty="SurfCathod">
+            <volumeref ref="Cathod"/>
+        </skinsurface>
+        <volume name="World">
+            <materialref ref="Air"/>
+            <solidref ref="World"/>
+            <physvol name="Vial">
+                <volumeref ref="Vial"/>
+                <position name="Vial_pos" unit="mm" x="0" y="0" z="0"/>
+            </physvol>
+            <physvol name="Cathod">
+                <volumeref ref="Cathod"/>
+                <rotationref ref="RotateY90"/>
+                <position name="Cathod_pos" unit="mm" x="40" y="0" z="0"/>
+            </physvol>
+        </volume>
+    </structure>
+
+    <setup name="Default" version="1.0">
+        <world ref="World"/>
+    </setup>
+
+</gdml>
