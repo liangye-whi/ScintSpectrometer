@@ -36,6 +36,8 @@
 #include "G4PhysicalVolumeStore.hh"
 #include "G4RunManager.hh"
 #include "G4VisAttributes.hh"
+#include "G4UserLimits.hh"
+#include "G4SystemOfUnits.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 OpNoviceGDMLDetectorConstruction::OpNoviceGDMLDetectorConstruction(
@@ -160,6 +162,13 @@ void OpNoviceGDMLDetectorConstruction::ReadGDML()
     G4cout << "world LV:  " << world->GetLogicalVolume()->GetName() << G4endl;
   }
   G4LogicalVolumeStore* pLVStore = G4LogicalVolumeStore::GetInstance();
+  ////////////////////////////
+  //G4cout<<"Searching for Vial and Scint..."<<G4endl;
+  //G4UserLimits* tracklimit = new G4UserLimits();
+  //tracklimit->SetUserMaxTrackLength(0.01*cm);
+  //if(fParser->GetVolume("Vial")!=nullptr){fParser->GetVolume("Vial")->GetM fParser->GetVolume("Vial")->SetUserLimits(tracklimit);G4cout<<"Vial applied!"<<G4endl;}
+  //if(fParser->GetVolume("Scint")!=nullptr){fParser->GetVolume("Scint")->SetUserLimits(tracklimit);G4cout<<"Scint applied!"<<G4endl;}
+  ////////////////////////////
   if(fVerbose)
   {
     G4cout << "Found " << pLVStore->size() << " logical volumes." << G4endl

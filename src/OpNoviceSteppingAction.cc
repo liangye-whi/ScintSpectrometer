@@ -27,6 +27,7 @@
 /// \file OpNoviceSteppingAction.cc
 /// \brief Implementation of the OpNoviceSteppingAction class
 
+#include "HistoManager.hh"
 #include "OpNoviceSteppingAction.hh"
 #include "OpNoviceRun.hh"
 #include "G4Event.hh"
@@ -35,12 +36,17 @@
 #include "G4RunManager.hh"
 #include "G4Step.hh"
 #include "G4Track.hh"
+#include "G4Electron.hh"
+#include "G4SystemOfUnits.hh"
+#include "G4RunManager.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-OpNoviceSteppingAction::OpNoviceSteppingAction(OpNoviceEventAction* event)
+OpNoviceSteppingAction::OpNoviceSteppingAction(OpNoviceEventAction* event,HistoManager* histo)
   : G4UserSteppingAction()
   , fEventAction(event)
+  , eTrackLength(0.)
+  , fHistoManager(histo)
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -55,6 +61,20 @@ void OpNoviceSteppingAction::UserSteppingAction(const G4Step* step)
   const G4ParticleDefinition* particleDef =
     step->GetTrack()->GetDynamicParticle()->GetParticleDefinition();
 
+  ///* uncomment to add cut
+  if(particleDef == opticalphoton)
+  {
+  //  if(step->GetTrack()->GetTrackLength()>10*cm and step->GetPostStepPoint()->GetPhysicalVolume()->GetName()=="Scint"){
+     if(step->GetTrack()->GetTrackLength()>50*cm){
+      //G4cout<<step->GetTrack()->GetTrackID()<<" "<<step->GetTrack()->GetTrackLength()/mm<<" mm"<<G4endl;
+      step->GetTrack()->SetTrackStatus(fStopAndKill);
+    }
+
+  }
+  //*/
+  //if(particleDef == G4Electron::Electron() and step->GetTrack()->GetTrackStatus()==fStopAndKill){
+  //  G4cout<<"Electron track length = "<<step->GetTrack()->GetTrackLength()/mm<<" mm "<<G4endl;
+  //}
   if(particleDef == opticalphoton)
   {
     G4StepPoint* endPoint = step->GetPostStepPoint();
@@ -93,5 +113,39 @@ void OpNoviceSteppingAction::UserSteppingAction(const G4Step* step)
     }
     //G4cout<<"Next Dir: "<<step->GetTrack()->GetDynamicParticle()->GetMomentumDirection().x()<<" "<<step->GetTrack()->GetDynamicParticle()->GetMomentumDirection().y()<< " "<<step->GetTrack()->GetDynamicParticle()->GetMomentumDirection().z()<<G4endl;
   }
+  /* uncomment to trace Cerenkov
+  if(particleDef == G4Electron::Electron()){
+    G4StepPoint* endPoint = step->GetPostStepPoint();
+     if(endPoint->GetPhysicalVolume()){  
+    G4cout<<endPoint->GetPhysicalVolume()->GetName() <<G4endl;}
+    if(endPoint->GetStepStatus() == fGeomBoundary)
+      G4cout<<"Endpoint On Boundary"<<G4endl;
+
+    //if(endPoint->GetPhysicalVolume()){
+    //  if(endPoint->GetPhysicalVolume()->GetName()=="Vial" or endPoint->GetPhysicalVolume()->GetName()=="Scint"){
+    //      //G4cout<<endPoint->GetPhysicalVolume()->GetName() <<G4endl;
+    //      eTrackLength +=step->GetStepLength();
+    //  }
+    //}
+    //if(step->GetTrack()->GetTrackStatus()==fStopAndKill){
+    //  //G4cout<<"Track eid "<<G4RunManager::GetRunManager()->GetCurrentEvent()->GetEventID()<<G4endl;
+    //  //fHistoManager->FillNtuple3(eTrackLength,G4RunManager::GetRunManager()->GetCurrentEvent()->GetEventID() ); 
+    //  G4cout<<"Track len "<<eTrackLength<<G4endl;
+    //  //eTrackLength = 0. ;
+    //}
+    //if(endPoint->GetPhysicalVolume()){
+    //  if(endPoint->GetPhysicalVolume()->GetName()=="Vial" or endPoint->GetPhysicalVolume()->GetName()=="Scint"){
+    G4cout<< step->GetTrack()->GetTrackLength() <<","<<endPoint->GetTotalEnergy()/MeV<<","
+      << (endPoint->GetTotalEnergy()/MeV>0.7750641?"Cherenkov":"")
+
+    <<","<< step->GetSecondary()->size()
+    <<","<< step->GetSecondaryInCurrentStep()->size()<<G4endl;
+        //G4cout<< step->GetTrack()->GetTrackStatus() <<G4endl;
+        //if(step->GetTrack()->GetTrackStatus()==fStopAndKill or step->GetTrack()->GetTrackStatus()==fStopButAlive){
+        //  eTrackLength+=step->GetTrack()->GetTrackLength()-33.75;
+        //  G4cout<<step->GetTrack()->GetTrackLength() <<G4endl;
+        //}
+        
+  }*/
 }
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

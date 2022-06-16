@@ -57,7 +57,9 @@ class HistoManager
     void FillHisto(G4int id, G4double bin, G4double weight = 1.0);
 //    void Normalize(G4int id, G4double fac);    
 
-    void FillNtuple(G4double energy);
+    void FillNtuple1(G4double, G4int);
+    void FillNtuple2(G4double, G4int,G4int);
+    void FillNtuple3(G4double, G4int);
 //    void FillNtuple(G4double energyAbs, G4double energyGap,
 //                    G4double trackLAbs, G4double trackLGap);
 //    
@@ -67,11 +69,16 @@ class HistoManager
     TFile*   fRootFile;
     TH1D*    fHisto[kMaxHisto];            
     TTree*   fNtuple1;    
-//    TTree*   fNtuple2;    
+    TTree*   fNtuple2;    
+    TTree*   fNtuple3;    
 
     G4double fEnergy;
-//    G4double fEabs;
-//    G4double fEgap;
+    G4int fEventID;
+    G4double fPEnergy;
+    G4int fPEventID;
+    G4int fIsCherenkov;
+    G4double fELen;
+    G4int fEEventID;
 //    G4double fLabs;
 //    G4double fLgap;
 };

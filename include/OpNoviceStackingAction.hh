@@ -33,6 +33,7 @@
 #ifndef OpNoviceStackingAction_h
 #define OpNoviceStackingAction_h 1
 
+#include "HistoManager.hh"
 #include "globals.hh"
 #include "G4UserStackingAction.hh"
 
@@ -41,7 +42,7 @@
 class OpNoviceStackingAction : public G4UserStackingAction
 {
  public:
-  OpNoviceStackingAction();
+  OpNoviceStackingAction(HistoManager*);
   ~OpNoviceStackingAction();
 
   G4ClassificationOfNewTrack ClassifyNewTrack(const G4Track* aTrack) override;
@@ -51,6 +52,7 @@ class OpNoviceStackingAction : public G4UserStackingAction
  private:
   G4int fScintillationCounter;
   G4int fCerenkovCounter;
+  HistoManager* fHistoManager;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

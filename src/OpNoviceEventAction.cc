@@ -71,13 +71,10 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* event)
   run->AddMie(fMie);
   run->AddBoundary(fBoundary);
   int NHits = event->GetHCofThisEvent()->GetHC(0)->GetSize();
-    //G4cout<<"Hits : "<<NHits<<G4endl;
   for(int i=0;i<NHits;++i){
-    //G4cout<<"Hits "<<i+1<<" energy: "<<((MyHit*) event->GetHCofThisEvent()->GetHC(0)->GetHit(i))->GetEnergy()/eV<<" eV"<<G4endl;
-    //fHistoManager->FillNtuple(((MyHit*) event->GetHCofThisEvent()->GetHC(0)->GetHit(i))->GetEnergy()/eV);
     fHistoManager->FillHisto(0,((MyHit*) event->GetHCofThisEvent()->GetHC(0)->GetHit(i))->GetEnergy()/eV,1);
-    fHistoManager->FillNtuple(((MyHit*) event->GetHCofThisEvent()->GetHC(0)->GetHit(i))->GetEnergy()/eV);
+    fHistoManager->FillNtuple1(((MyHit*) event->GetHCofThisEvent()->GetHC(0)->GetHit(i))->GetEnergy()/eV, event->GetEventID());
   }
-
+  //fHistoManager->PrintStatistic();
 }
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

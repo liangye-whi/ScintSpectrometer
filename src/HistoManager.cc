@@ -42,8 +42,9 @@
 
 HistoManager::HistoManager()
 :fRootFile(0), 
-  fNtuple1(0)
+//  fNtuple1(0)
 // fNtuple1(0), fNtuple2(0), 
+ fNtuple1(0), fNtuple2(0), fNtuple3(0)
 // fEabs(0.), fEgap(0.) ,fLabs(0.), fLgap(0.)
 {
       
@@ -51,7 +52,7 @@ HistoManager::HistoManager()
   for (G4int k=0; k<kMaxHisto; k++) fHisto[k] = 0;
     
   // ntuple
-  fNtuple1 = 0;
+  //fNtuple1 = 0;
   //fNtuple2 = 0;
 }
 
@@ -83,7 +84,7 @@ void HistoManager::Book(G4String fileName)
   // id = 0
   fHisto[0] = new TH1D("Energy", "Energy of detected photons (eV)", 100, 0., 20);
 //  // id = 1
-//  fHisto[1] = new TH1D("EGap", "Edep in gap (MeV)", 100, 0., 100*CLHEP::MeV);
+//  fHisto[1] = new TH1D("EventID", "Edep in gap (MeV)", 100, 0., 100*CLHEP::MeV);
 //  // id = 2
 //  fHisto[2] = new TH1D("LAbs", "trackL in absorber (mm)", 100, 0., 1*CLHEP::m);
 //  // id = 3
@@ -94,15 +95,19 @@ void HistoManager::Book(G4String fileName)
   }  
 
   // create 1st ntuple
-  fNtuple1 = new TTree("Ntuple1", "Edep");
-  fNtuple1->Branch("Eabs", &fEnergy, "Eabs/D");
-//  fNtuple1->Branch("Egap", &fEgap, "Egap/D");
+  fNtuple1 = new TTree("Ntuple1", "Ephoton");
+  fNtuple1->Branch("Energy", &fEnergy, "Energy/D");
+  fNtuple1->Branch("EventID", &fEventID, "EventID/I");
 
   // create 2nd ntuple 
-//  fNtuple2 = new TTree("Ntuple2", "TrackL");
-//  fNtuple2->Branch("Labs", &fLabs, "Labs/D");
-//  fNtuple2->Branch("Lgap", &fLgap, "Lgap/D");
+  fNtuple2 = new TTree("Ntuple2", "EPrimaryPhoton");
+  fNtuple2->Branch("PEnergy", &fPEnergy, "Energy/D");
+  fNtuple2->Branch("PEventID", &fPEventID, "EventID/I");
+  fNtuple2->Branch("PIsCherenkov", &fIsCherenkov, "IsCherenkov/I");
  
+  fNtuple3 = new TTree("Ntuple3", "EElectron");
+  fNtuple3->Branch("ELen", &fELen, "Track Length/D");
+  fNtuple3->Branch("EEventID", &fEEventID, "EventID/I");
   G4cout << "\n----> Output file is open in " << fileName << G4endl;
 }
 
@@ -145,13 +150,28 @@ void HistoManager::FillHisto(G4int ih, G4double xbin, G4double weight)
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void HistoManager::FillNtuple(G4double energy)
+void HistoManager::FillNtuple1(G4double energy,G4int eid)
 {
   fEnergy = energy;
+  fEventID = eid;
 
-  //G4cout<<"NTUPLE FILLING : "<<fEnergy<<G4endl;
   if (fNtuple1) fNtuple1->Fill();
-//  if (fNtuple2) fNtuple2->Fill();
+}
+void HistoManager::FillNtuple2(G4double energy,G4int eid,G4int isC)
+{
+  fPEnergy = energy;
+  fPEventID = eid;
+  fIsCherenkov = isC;
+
+  if (fNtuple2) fNtuple2->Fill();
+}
+
+void HistoManager::FillNtuple3(G4double len,G4int eid)
+{
+  fELen =len;
+  fEEventID = eid;
+
+  if (fNtuple3) fNtuple3->Fill();
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -173,6 +193,7 @@ void HistoManager::PrintStatistic()
     //       << " rms = " << G4BestUnit(h1->GetRMS(), unitCategory ) 
     //       << G4endl;
   }
+  G4cout<<"Ntuple2: "<<fNtuple2->GetEntries()<<G4endl;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

@@ -60,6 +60,6 @@ void OpNoviceActionInitialization::Build() const
   SetUserAction(new OpNoviceRunAction(primary, fHistoManager));
   OpNoviceEventAction* event = new OpNoviceEventAction(fHistoManager);
   SetUserAction(event);
-  SetUserAction(new OpNoviceSteppingAction(event));
-  SetUserAction(new OpNoviceStackingAction());
+  SetUserAction(new OpNoviceSteppingAction(event,fHistoManager));
+  SetUserAction(new OpNoviceStackingAction(fHistoManager));
 }

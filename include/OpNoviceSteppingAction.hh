@@ -30,6 +30,7 @@
 #ifndef OpNoviceSteppingAction_h
 #define OpNoviceSteppingAction_h 1
 
+#include "HistoManager.hh"
 #include "OpNoviceEventAction.hh"
 #include "globals.hh"
 #include "G4UserSteppingAction.hh"
@@ -37,13 +38,15 @@
 class OpNoviceSteppingAction : public G4UserSteppingAction
 {
  public:
-  OpNoviceSteppingAction(OpNoviceEventAction*);
+  OpNoviceSteppingAction(OpNoviceEventAction*,HistoManager*);
   ~OpNoviceSteppingAction();
 
   void UserSteppingAction(const G4Step*) override;
 
  private:
   OpNoviceEventAction* fEventAction;
+  G4double eTrackLength;
+  HistoManager *fHistoManager;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

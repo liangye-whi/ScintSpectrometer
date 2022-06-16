@@ -37,13 +37,15 @@
 #include "G4RunManager.hh"
 #include "G4Track.hh"
 #include "G4VProcess.hh"
+#include "G4SystemOfUnits.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-OpNoviceStackingAction::OpNoviceStackingAction()
+OpNoviceStackingAction::OpNoviceStackingAction(HistoManager* histo)
   : G4UserStackingAction()
   , fScintillationCounter(0)
   , fCerenkovCounter(0)
+  , fHistoManager(histo)
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -61,6 +63,19 @@ G4ClassificationOfNewTrack OpNoviceStackingAction::ClassifyNewTrack(
         ++fScintillationCounter;
       else if(aTrack->GetCreatorProcess()->GetProcessName() == "Cerenkov")
         ++fCerenkovCounter;
+
+      if(aTrack->GetCreatorProcess()->GetProcessName() == "Cerenkov")
+      {
+        //G4cout<<"DEBUG"<<aTrack->GetTotalEnergy()/eV<<" "<<G4RunManager::GetRunManager()->GetCurrentEvent()->GetEventID()<<G4endl;
+        fHistoManager->FillNtuple2(aTrack->GetTotalEnergy()/eV,G4RunManager::GetRunManager()->GetCurrentEvent()->GetEventID(),1);
+        //G4cout<< "C photon from parent ID " << aTrack->GetParentID()<<G4endl;
+      }
+      else
+      {
+        //if(G4RunManager::GetRunManager()->GetCurrentEvent()==nullptr)G4cout<<"Here ERROR!!!!!"<<G4endl;
+        fHistoManager->FillNtuple2(aTrack->GetTotalEnergy()/eV,G4RunManager::GetRunManager()->GetCurrentEvent()->GetEventID(),0);
+        //G4cout<< "NC photon from parent ID " << aTrack->GetParentID()<<G4endl;
+      }
     }
   }
   return fUrgent;
