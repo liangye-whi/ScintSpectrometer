@@ -38,6 +38,7 @@
 #include "G4VisAttributes.hh"
 #include "G4UserLimits.hh"
 #include "G4SystemOfUnits.hh"
+#include "G4Material.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 OpNoviceGDMLDetectorConstruction::OpNoviceGDMLDetectorConstruction(
@@ -180,7 +181,18 @@ void OpNoviceGDMLDetectorConstruction::ReadGDML()
     G4cout << "Found " << pPVStore->size() << " physical volumes." << G4endl
            << G4endl;
   }
+  /* LAB */
+  G4Material* material = G4Material::GetMaterial("LAB");
+  if(!material) G4cout<<"\033[41;37mLAB not found.\033[0m"<<G4endl;
+  else {
+    G4cout<<"\033[42;37mLAB found.\033[0m"<<G4endl;
+  // Set the Birks' constant for a material
+    double birks_constant = 0.165*mm/MeV;
+    material->GetIonisation()->SetBirksConstant(birks_constant);
+    G4cout<< material->GetIonisation()->GetBirksConstant()<<G4endl;
+  }
 }
+  /* LAB */
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 void OpNoviceGDMLDetectorConstruction::UpdateGeometry()

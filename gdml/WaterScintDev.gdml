@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<gdml xmlns:gdml="http://cern.ch/2001/Schemas/GDML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd" >
+    
+    <define>
+        <matrix coldim="2" name="AIRRINDEX" values="2.034*eV 1 2.068*eV 1 2.103*eV 1 2.139*eV 1 2.177*eV 1 2.216*eV 1 2.256*eV 1 2.298*eV 1 2.341*eV 1 2.386*eV 1 2.433*eV 1 2.481*eV 1 2.532*eV 1 2.585*eV 1 2.64*eV 1 2.697*eV 1 2.757*eV 1 2.82*eV 1 2.885*eV 1 2.954*eV 1 3.026*eV 1 3.102*eV 1 3.181*eV 1 3.265*eV 1 3.353*eV 1 3.446*eV 1 3.545*eV 1 3.649*eV 1 3.76*eV 1 3.877*eV 1 4.002*eV 1 4.136*eV 1"/>
+        <matrix coldim="2" name="WATERRINDEX" values="5.916*eV  1.36733 5.647*eV 1.36639 5.522*eV	1.36577 5.177*eV 1.36360 4.437*eV 1.35714 3.882*eV 1.35134 3.451*eV 1.34663 3.106*eV 1.34290 3.067*eV 1.34248 2.833*eV 1.34004 2.515*eV 1.33687 2.268*eV 1.33457 2.143*eV 1.33346 1.981*eV 1.33210 1.941*eV 1.33178 1.827*eV 1.33088 1.726*eV 1.33013 1.635*eV 1.32948"/>
+        <?WATERRINDEX is copyed from JSAP Water.xml?>
+        <matrix coldim="2" name="QUARTZRINDEX" values="6.888010*eV 1.688442 5.955052*eV 1.637966 5.244678*eV 1.609926 4.685721*eV 1.592346 4.234433*eV 1.580452 3.862436*eV 1.571964 3.550521*eV 1.565660 3.285220*eV 1.560829 3.056809*eV 1.557029 2.858096*eV 1.553976 2.683640*eV 1.551477 2.529257*eV 1.549397 2.391670*eV 1.547642 2.268280*eV 1.546141 2.156997*eV 1.544841 2.056123*eV 1.543704 1.964262*eV 1.542698 1.880258*eV 1.541800 1.803144*eV 1.540991 1.732107*eV 1.540255 1.666454*eV 1.539581 1.605597*eV 1.538958 1.549028*eV 1.538379 1.496309*eV 1.537836 1.447061*eV 1.537324"/>
+        <?SiO2 data from https://refractiveindex.info/?shelf=main&book=SiO2&page=Radhakrishnan-o ?>
+        <matrix coldim="2" name="WATERABSLENGTH" values="6.1990*eV 0.14492*m 5.5102*eV 0.36496*m 4.9592*eV 0.59523*m 4.5083*eV 0.93457*m 4.1326*eV 1.49253*m 3.8147*eV 2.39234*m 3.5422*eV 4.29184*m 3.3061*eV 8.54700*m 3.0995*eV 17.2413*m 2.9171*eV 26.3157*m 2.7551*eV 35.7142*m 2.6101*eV 40.4858*m 2.4796*eV 40.0000*m 2.3615*eV 31.2500*m 2.2541*eV 22.2222*m 2.1561*eV 12.6582*m 2.0663*eV 4.34782*m"/>
+        <?WATERABS is copyed from Appl. Opt., 12, 555--563, (1973).?>
+        <matrix coldim="2" name="EFFICIENCY" values="2.034*eV 1 4.136*eV 1"/>
+        <matrix coldim="2" name="PMTABSLENGTH" values="1.034*eV 0 7.136*eV 0"/>
+        <variable name="vial_a" value="12.5"/>
+        <variable name="vial_b" value="40.0"/>
+        <variable name="vial_c" value="34.5"/>
+        <variable name="vial_thick" value="1.25"/>
+        <variable name="cathod_diameter" value="51"/>
+        <rotation name="RotateY90" y="90" unit="deg" />
+
+        <matrix coldim="2" name="WATERSCINTILLATIONCOMPONENT1" values="2.034*eV 1 2.068*eV 1 2.103*eV 1 2.139*eV 1 2.177*eV 1 2.216*eV 1 2.256*eV 1 2.298*eV 1 2.341*eV 1 2.386*eV 1 2.433*eV 1 2.481*eV 1 2.532*eV 1 2.585*eV 1 2.64*eV 1 2.697*eV 1 2.757*eV 1 2.82*eV 1 2.885*eV 1 2.954*eV 1 3.026*eV 1 3.102*eV 1 3.181*eV 1 3.265*eV 1 3.353*eV 1 3.446*eV 1 3.545*eV 1 3.649*eV 1 3.76*eV 1 3.877*eV 1 4.002*eV 1 4.136*eV 1"/>
+        <matrix coldim="2" name="WATERSCINTILLATIONCOMPONENT2" values="2.034*eV 0.01 2.068*eV 1 2.103*eV 2 2.139*eV 3 2.177*eV 4 2.216*eV 5 2.256*eV 6 2.298*eV 7 2.341*eV 8 2.386*eV 9 2.433*eV 8 2.481*eV 7 2.532*eV 6 2.585*eV 4 2.64*eV 3 2.697*eV 2 2.757*eV 1 2.82*eV 0.01 2.885*eV 1 2.954*eV 2 3.026*eV 3 3.102*eV 4 3.181*eV 5 3.265*eV 6 3.353*eV 7 3.446*eV 8 3.545*eV 9 3.649*eV 8 3.76*eV 7 3.877*eV 6 4.002*eV 5 4.136*eV 4"/>
+        <matrix coldim="1" name="WATERSCINTILLATIONYIELD" values="50"/>
+        <matrix coldim="1" name="WATERRESOLUTIONSCALE" values="1"/>
+        <matrix coldim="1" name="WATERSCINTILLATIONTIMECONSTANT1" values="1"/>
+        <matrix coldim="1" name="WATERSCINTILLATIONTIMECONSTANT2" values="10"/>
+        <matrix coldim="1" name="SCINTILLATIONYIELD1" values="0.8"/>
+        <matrix coldim="1" name="SCINTILLATIONYIELD2" values="0.2"/>
+    </define>
+
+    <materials>
+        <isotope N="14" Z="7" name="N14">
+            <atom unit="g/mole" value="14.0031"/>
+        </isotope>
+        <isotope N="15" Z="7" name="N15">
+            <atom unit="g/mole" value="15.0001"/>
+        </isotope>
+        <element name="Nitrogen">
+            <fraction n="0.99632" ref="N14"/>
+            <fraction n="0.00368" ref="N15"/>
+        </element>
+        <isotope N="16" Z="8" name="O16">
+            <atom unit="g/mole" value="15.9949"/>
+        </isotope>
+        <isotope N="17" Z="8" name="O17">
+            <atom unit="g/mole" value="16.9991"/>
+        </isotope>
+        <isotope N="18" Z="8" name="O18">
+            <atom unit="g/mole" value="17.9992"/>
+        </isotope>
+        <element name="Oxygen">
+            <fraction n="0.99757" ref="O16"/>
+            <fraction n="0.00038" ref="O17"/>
+            <fraction n="0.00205" ref="O18"/>
+        </element>
+        <material name="Air" state="gas">
+            <property name="RINDEX" ref="AIRRINDEX"/>
+            <T unit="K" value="293.15"/>
+            <D unit="g/cm3" value="0.00129"/>
+            <fraction n="0.7" ref="Nitrogen"/>
+            <fraction n="0.3" ref="Oxygen"/>
+        </material>
+        <isotope N="1" Z="1" name="H1">
+            <atom unit="g/mole" value="1.00782503081372"/>
+        </isotope>
+        <isotope N="2" Z="1" name="H2">
+            <atom unit="g/mole" value="2.01410199966617"/>
+        </isotope>
+        <element name="Hydrogen">
+            <fraction n="0.999885" ref="H1"/>
+            <fraction n="0.000115" ref="H2"/>
+        </element>
+        <material name="Water" state="solid">
+            <property name="RINDEX" ref="WATERRINDEX"/>
+            <property name="ABSLENGTH" ref="WATERABSLENGTH"/>
+            <property name="SCINTILLATIONCOMPONENT1" ref="WATERSCINTILLATIONCOMPONENT1"/>
+            <property name="SCINTILLATIONCOMPONENT2" ref="WATERSCINTILLATIONCOMPONENT2"/>
+            <property name="SCINTILLATIONYIELD" ref="WATERSCINTILLATIONYIELD"/>
+            <property name="RESOLUTIONSCALE" ref="WATERRESOLUTIONSCALE"/>
+            <property name="SCINTILLATIONTIMECONSTANT1" ref="WATERSCINTILLATIONTIMECONSTANT1"/>
+            <property name="SCINTILLATIONTIMECONSTANT2" ref="WATERSCINTILLATIONTIMECONSTANT2"/>
+            <property name="SCINTILLATIONYIELD1" ref="SCINTILLATIONYIELD1"/>
+            <property name="SCINTILLATIONYIELD2" ref="SCINTILLATIONYIELD2"/>
+            <T unit="K" value="293.15"/>
+            <D unit="g/cm3" value="1"/>
+            <!--MEE unit="eV" value="68.9984174679527"/-->
+            <fraction n="0.112097669256382" ref="Hydrogen"/>
+            <fraction n="0.887902330743618" ref="Oxygen"/>
+        </material>
+        <isotope N="28" Z="14" name="Si28">
+          <atom unit="g/mole" value="27.9769265350"/>
+        </isotope>
+        <isotope N="29" Z="14" name="Si29">
+          <atom unit="g/mole" value="28.9764946653"/>
+        </isotope>
+        <isotope N="30" Z="14" name="Si30">
+          <atom unit="g/mole" value="29.973770137"/>
+        </isotope>
+        <element name="Silicon">
+            <fraction n="0.92223" ref="Si28"/>
+            <fraction n="0.04685" ref="Si29"/>
+            <fraction n="0.03092" ref="Si30"/>
+        </element>
+        <material name="Quartz" state="solid">
+            <property name="RINDEX" ref="QUARTZRINDEX"/>
+            <T unit="K" value="293.15"/>
+            <D unit="g/cm3" value="2.65"/>
+            <fraction n="0.4674294749105434" ref="Silicon"/>
+            <fraction n="0.5325705250894566" ref="Oxygen"/>
+        </material>
+        <material name="PhotoCathod" state="solid">
+            <property name="RINDEX" ref="QUARTZRINDEX"/>
+            <property name="ABSLENGTH" ref="PMTABSLENGTH"/>
+            <T unit="K" value="293.15"/>
+            <D unit="g/cm3" value="2.65"/>
+            <fraction n="0.4674294749105434" ref="Silicon"/>
+            <fraction n="0.5325705250894566" ref="Oxygen"/>
+        </material>
+
+    </materials>
+
+    <solids>
+        <box name="World" x="100" y="100" z="100" lunit="mm"/>
+        <box name="Vial" x="vial_a" y="vial_b" z="vial_c" lunit="mm"/>
+        <box name="Scint" x="vial_a-2*vial_thick" y="vial_b-2*vial_thick" z="vial_c-2*vial_thick" lunit="mm"/>
+        <cone name="Cathod" rmin1="0" rmax1="cathod_diameter/2" rmin2="0" rmax2="cathod_diameter/2" z="5" startphi="0" deltaphi="360" lunit="mm" aunit="deg" />
+        <opticalsurface name="SurfCathod" model="glisur" finish="polished" type="dielectric_dielectric" value="1.0">
+           <property name="EFFICIENCY" ref="EFFICIENCY" />
+        </opticalsurface>
+    </solids>
+
+    <structure>
+        <volume name="Scint">
+            <materialref ref="Water"/>
+            <solidref ref="Scint"/>
+         </volume>
+        <volume name="Vial">
+            <materialref ref="Quartz"/>
+            <solidref ref="Vial"/>
+            <physvol name="Vial_phys">
+                <volumeref ref="Scint"/>
+                <position name="Scint_pos" unit="m" x="0" y="0" z="0"/>
+            </physvol>
+        </volume>
+        <volume name="Cathod">
+            <materialref ref="PhotoCathod"/>
+            <solidref ref="Cathod"/>
+            <auxiliary auxtype="SensDet" auxvalue="CathodSD"/>
+        </volume>
+        <skinsurface name="CathodSurface" surfaceproperty="SurfCathod">
+            <volumeref ref="Cathod"/>
+        </skinsurface>
+        <volume name="World">
+            <materialref ref="Air"/>
+            <solidref ref="World"/>
+            <physvol name="Vial">
+                <volumeref ref="Vial"/>
+                <position name="Vial_pos" unit="mm" x="0" y="0" z="0"/>
+            </physvol>
+            <physvol name="Cathod">
+                <volumeref ref="Cathod"/>
+                <rotationref ref="RotateY90"/>
+                <position name="Cathod_pos" unit="mm" x="40" y="0" z="0"/>
+            </physvol>
+        </volume>
+    </structure>
+
+    <setup name="Default" version="1.0">
+        <world ref="World"/>
+    </setup>
+
+</gdml>
